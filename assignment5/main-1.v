@@ -1,4 +1,4 @@
-`include "veda.v"
+`include "valentine-1.v"
 `include "CAdder.v"
 module implement(input wire clk,output wire led);
 reg reset,write_enable,mode,led1;
@@ -36,5 +36,5 @@ always@(posedge clk)begin
         led1=1'b0;
     end
 end
-assign led = led1;
+led = led1;
 endmodule
