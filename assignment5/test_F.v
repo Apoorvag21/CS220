@@ -1,4 +1,3 @@
-`include "main-1.v" 
 module test;
 reg sign1,sign2;
 reg[7:0] exp1,exp2;
