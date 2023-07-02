@@ -1,0 +1,62 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1110-g18392a46)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_00000185ca7f6920 .scope module, "full_subtract" "full_subtract" 2 2;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /INPUT 1 "bin";
+    .port_info 3 /OUTPUT 1 "d";
+    .port_info 4 /OUTPUT 1 "bout";
+L_00000185ca7f4920 .functor OR 1, L_00000185ca7aae40, L_00000185ca7f48b0, C4<0>, C4<0>;
+o00000185ca7f6fd8 .functor BUFZ 1, C4<z>; HiZ drive
+v00000185ca7f4280_0 .net "a", 0 0, o00000185ca7f6fd8;  0 drivers
+o00000185ca7f7038 .functor BUFZ 1, C4<z>; HiZ drive
+v00000185ca7f45a0_0 .net "b", 0 0, o00000185ca7f7038;  0 drivers
+o00000185ca7f71b8 .functor BUFZ 1, C4<z>; HiZ drive
+v00000185ca7f4780_0 .net "bin", 0 0, o00000185ca7f71b8;  0 drivers
+v00000185ca7f4140_0 .net "bout", 0 0, L_00000185ca7f4920;  1 drivers
+v00000185ca7f3880_0 .net "carry1", 0 0, L_00000185ca7aae40;  1 drivers
+v00000185ca7f3e20_0 .net "carry2", 0 0, L_00000185ca7f48b0;  1 drivers
+v00000185ca7f4500_0 .net "d", 0 0, L_00000185ca7f4840;  1 drivers
+v00000185ca7f3920_0 .net "dif1", 0 0, L_00000185ca7f52a0;  1 drivers
+S_00000185ca7f6ab0 .scope module, "hf1" "half_subtract" 2 6, 3 1 0, S_00000185ca7f6920;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /OUTPUT 1 "diff";
+    .port_info 3 /OUTPUT 1 "carry";
+L_00000185ca7c3060 .functor NOT 1, o00000185ca7f6fd8, C4<0>, C4<0>, C4<0>;
+L_00000185ca7f52a0 .functor XOR 1, o00000185ca7f6fd8, o00000185ca7f7038, C4<0>, C4<0>;
+L_00000185ca7aae40 .functor AND 1, L_00000185ca7c3060, o00000185ca7f7038, C4<1>, C4<1>;
+v00000185ca7f6c40_0 .net "a", 0 0, o00000185ca7f6fd8;  alias, 0 drivers
+v00000185ca7c33d0_0 .net "an", 0 0, L_00000185ca7c3060;  1 drivers
+v00000185ca7c2fc0_0 .net "b", 0 0, o00000185ca7f7038;  alias, 0 drivers
+v00000185ca7aa850_0 .net "carry", 0 0, L_00000185ca7aae40;  alias, 1 drivers
+v00000185ca7aa8f0_0 .net "diff", 0 0, L_00000185ca7f52a0;  alias, 1 drivers
+S_00000185ca7aa990 .scope module, "hf2" "half_subtract" 2 7, 3 1 0, S_00000185ca7f6920;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /OUTPUT 1 "diff";
+    .port_info 3 /OUTPUT 1 "carry";
+L_00000185ca7aaeb0 .functor NOT 1, L_00000185ca7f52a0, C4<0>, C4<0>, C4<0>;
+L_00000185ca7f4840 .functor XOR 1, L_00000185ca7f52a0, o00000185ca7f71b8, C4<0>, C4<0>;
+L_00000185ca7f48b0 .functor AND 1, L_00000185ca7aaeb0, o00000185ca7f71b8, C4<1>, C4<1>;
+v00000185ca7aab20_0 .net "a", 0 0, L_00000185ca7f52a0;  alias, 1 drivers
+v00000185ca7aabc0_0 .net "an", 0 0, L_00000185ca7aaeb0;  1 drivers
+v00000185ca7aac60_0 .net "b", 0 0, o00000185ca7f71b8;  alias, 0 drivers
+v00000185ca7aad00_0 .net "carry", 0 0, L_00000185ca7f48b0;  alias, 1 drivers
+v00000185ca7aada0_0 .net "diff", 0 0, L_00000185ca7f4840;  alias, 1 drivers
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "full_subtract.v";
+    "./half_subtract.v";
